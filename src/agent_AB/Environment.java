@@ -53,15 +53,20 @@ public class Environment {
          return envState;
      } else if (action == MOVE_LEFT) {
          // Xử lý di chuyển sang trái
+    	 envState.setAgentLocation(LOCATION_B);
      } else if (action == MOVE_RIGHT) {
          // Xử lý di chuyển sang phải
+    	 envState.setAgentLocation(LOCATION_C);
      } else if (action == UP) {
          // Xử lý di chuyển lên
+    	 envState.setAgentLocation(LOCATION_D);
      } else if (action == DOWN) {
          // Xử lý di chuyển xuống
+    	 envState.setAgentLocation(LOCATION_A);
      }
      return envState;
  }
+	
 	
 
 
@@ -118,4 +123,26 @@ public class Environment {
 			step();
 		}
 	}
+	
+	private int agentScore = 0; // Khởi tạo biến để lưu điểm của agent
+	private Action lastAction;
+	public EnvironmentState executeAction1(Action action) {
+        Action lastAction = action; // Gán hành động cuối cùng
+        // ... (các xử lý khác)
+		return envState;
+    }
+    // Phương thức tính điểm hiệu suất
+    public int getPerformanceMeasure() {
+        int score = 0;
+
+        if (lastAction == SUCK_DIRT) {
+            agentScore += 500; // Cộng 500 điểm nếu hành động là SUCK
+        } else if (lastAction == MOVE_LEFT || lastAction == MOVE_RIGHT || lastAction == UP || lastAction == DOWN) {
+            agentScore -= 10; // Trừ 10 điểm cho các hành động di chuyển
+        } else if (lastAction == NoOpAction.NO_OP) {
+            agentScore -= 100; // Trừ 100 điểm nếu agent không thể di chuyển
+        }
+
+        return agentScore;
+    }
 }
