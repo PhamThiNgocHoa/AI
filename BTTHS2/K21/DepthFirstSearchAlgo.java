@@ -195,7 +195,7 @@ public class DepthFirstSearchAlgo implements ISearchAlgo {
 //		}
 //		System.out.println(result);
 		//
-		Node res = algo2.execute_TreeS(nodeS, "A", "G");
+		Node res = algo2.execute(nodeS, "A", "G");
 		for (String temp : NodeUtils.printPath(res)) {
 			System.out.println(temp);
 		}
