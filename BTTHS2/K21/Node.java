@@ -1,6 +1,7 @@
 package k21;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Node implements Comparable<Node> {
@@ -102,4 +103,19 @@ public class Node implements Comparable<Node> {
 	public int compareTo(Node o) {
 		return this.label.compareTo(o.label);
 	}
+	public void addChild(Edge edge) {
+	    // Kiểm tra xem cạnh đã tồn tại trong danh sách các cạnh của nút chưa
+	    if (!children.contains(edge)) {
+	        // Thêm cạnh mới vào danh sách các cạnh của nút
+	        children.add(edge);
+	        
+	        // Kiểm tra xem nút kết thúc của cạnh đã có cha (parent) chưa, nếu chưa thì thiết lập nút hiện tại là cha
+	        if (edge.getEnd().getParent() == null) {
+	            edge.getEnd().setParent(this);
+	        }
+	    }
+	}
+
+
+	
 }
