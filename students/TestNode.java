@@ -7,7 +7,7 @@ public class TestNode {
 
 	public static void main(String[] args) {
 		Puzzle p = new Puzzle();
-		p.readInput("D:\\Study\\ALL BaiTap\\AI\\txt\\PuzzleGoalState.txt", "D:\\Study\\ALL BaiTap\\AI\\txt\\PuzzleMap.txt");
+		p.readInput("D:\\Study\\ALL BaiTap\\AI\\src\\students\\PuzzleGoalState.txt", "D:\\Study\\ALL BaiTap\\AI\\src\\students\\PuzzleMap.txt");
 
 		Node initialState = p.getInitialState();
 		Node tmp = new Node(initialState);
